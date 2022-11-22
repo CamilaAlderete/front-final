@@ -1,0 +1,70 @@
+
+<div class="container d-flex">
+
+  <div class="col-11">
+
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container-fluid" >
+
+
+          <!-----titulo------>
+          <h3 class="text-title">
+            Nuevo Cliente
+          </h3>
+
+          <p>
+
+            <mat-form-field appearance="fill" class="col-md-6">
+              <mat-label>Nombre y Apellido</mat-label>
+              <input matInput type="text" [(ngModel)]="cliente.nombre">
+            </mat-form-field>
+
+          </p>
+
+          <p>
+
+            <mat-form-field appearance="fill" class="col-md-6">
+              <mat-label>RUC</mat-label>
+              <input matInput type="text" [(ngModel)]="cliente.ruc">
+            </mat-form-field>
+
+          </p>
+
+          <p>
+
+            <mat-form-field appearance="fill" class="col-md-6">
+              <mat-label>Email</mat-label>
+              <input matInput type="text" [(ngModel)]="cliente.email">
+            </mat-form-field>
+
+          </p>
+
+          <!----las funciones guardar y atras seran llamdas ante el evento click---->
+          <div class="col-md-6 d-flex justify-content-around">
+            <button type="button" class="btn btn-primary btn-sm"
+                    (click)="guardar()">Guardar
+            </button>
+            <button type="button" class="btn btn-danger btn-sm"
+                    (click)="atras()">Cancelar
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

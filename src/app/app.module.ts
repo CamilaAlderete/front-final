@@ -26,6 +26,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from "@angular/material/list";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
+import { ListadoClientesComponent } from './clientes/listado-clientes/listado-clientes.component';
+import { NuevoClienteComponent } from './clientes/nuevo-cliente/nuevo-cliente.component';
+import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import {MatSortModule} from "@angular/material/sort";
     AppComponent,
     HomeComponent,
     CositasUtilesComponent,
+    ListadoClientesComponent,
+    NuevoClienteComponent,
+    EditarClienteComponent,
   ],
   // librerias y modulos de angular y librerias externas
     imports: [

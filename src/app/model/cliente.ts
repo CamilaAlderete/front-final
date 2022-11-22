@@ -1,5 +1,5 @@
 export class Cliente {
-  id!: string;
+  id!: number;
   nombre!: string;
   email!: string;
   ruc!: string;
