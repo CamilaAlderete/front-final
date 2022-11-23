@@ -29,6 +29,7 @@ import {MatSortModule} from "@angular/material/sort";
 import { ListadoClientesComponent } from './clientes/listado-clientes/listado-clientes.component';
 import { NuevoClienteComponent } from './clientes/nuevo-cliente/nuevo-cliente.component';
 import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente.component';
+import { ReporteVentasDetalladoComponent } from './reporte-ventas-detallado/reporte-ventas-detallado.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente
     ListadoClientesComponent,
     NuevoClienteComponent,
     EditarClienteComponent,
+    ReporteVentasDetalladoComponent,
   ],
   // librerias y modulos de angular y librerias externas
     imports: [
