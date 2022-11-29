@@ -1,4 +1,4 @@
-# Primera parcial de Frontend
+# Primera final de Frontend
 
 Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
