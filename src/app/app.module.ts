@@ -29,7 +29,11 @@ import {MatSortModule} from "@angular/material/sort";
 import { ListadoClientesComponent } from './clientes/listado-clientes/listado-clientes.component';
 import { NuevoClienteComponent } from './clientes/nuevo-cliente/nuevo-cliente.component';
 import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente.component';
-
+import { ListadoProductosComponent } from './productos/listado-productos/listado-productos.component';
+import { NuevoProductoComponent } from './productos/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './productos/editar-producto/editar-producto.component';
+import { NuevaCabeceraComponent } from './cabeceraConsumo/nueva-cabecera/nueva-cabecera.component';
+import { ListadoCabecerasComponent } from './cabeceraConsumo/listado-cabeceras/listado-cabeceras.component';
 
 @NgModule({
   //componentes creados
@@ -40,6 +44,11 @@ import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente
     ListadoClientesComponent,
     NuevoClienteComponent,
     EditarClienteComponent,
+    ListadoProductosComponent,
+    NuevoProductoComponent,
+    EditarProductoComponent,
+    NuevaCabeceraComponent,
+    ListadoCabecerasComponent,
   ],
   // librerias y modulos de angular y librerias externas
     imports: [

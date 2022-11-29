@@ -39,7 +39,7 @@ export class ListadoClientesComponent implements OnInit {
       this.lista = jsonObj as Cliente[]
 
     }else{
-      this.toastr.warning('Lista vacia');
+      this.toastr.warning('Lista vacía');
     }
   }
 
