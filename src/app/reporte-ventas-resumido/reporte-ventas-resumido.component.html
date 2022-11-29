@@ -1,0 +1,122 @@
+<!-- titulo---->
+<br>
+<div class="d-flex justify-content-center">
+  <h2 class="text-title">
+    Reporte de ventas resumido
+  </h2>
+</div>
+
+<!-- el contenido -->
+<div class="mx-4 mat-elevation-z8 col-md-25 mt-3">
+
+  <br>
+  <h4 class="text-title m-3">
+    Filtros de búsqueda
+  </h4>
+
+  <!-- la sección para el filtro -->
+  <div class="container col-10">
+    <!-- la primera fila -->
+    <div class="row align-items-center">
+
+      <!-- fecha desde -->
+      <div class="col-lg-1"> Fecha desde:</div>
+      <div class="col-lg-5">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Fecha</mat-label>
+          <input matInput [matDatepicker]="pickerDesde" [(ngModel)]="fechaDesde" placeholder="dd/mm/aaaa">
+          <mat-datepicker-toggle matSuffix [for]="pickerDesde"></mat-datepicker-toggle>
+          <mat-datepicker #pickerDesde></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <!-- fecha hasta -->
+      <div class="col-lg-1"> Fecha hasta:</div>
+      <div class="col-lg-5">
+        <mat-form-field appearance="fill"  style="width: 100%">
+          <mat-label>Fecha</mat-label>
+          <input matInput [matDatepicker]="pickerHasta" [(ngModel)]="fechaHasta" placeholder="dd/mm/aaaa">
+          <mat-datepicker-toggle matSuffix [for]="pickerHasta"></mat-datepicker-toggle>
+          <mat-datepicker #pickerHasta></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <br>
+    <!-- la segunda fila -->
+    <div class="row">
+
+      <!-- Cliente -->
+      <div class="col-lg-6">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Cliente</mat-label>
+          <mat-select [value]="cliente" [(ngModel)]="cliente">
+            <mat-option *ngFor="let l of listaClientes" [value]="l">
+              {{ l.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <!----los botones de agregar ficha, buscar y limpiar---->
+    <div class="row justify-content-between">
+
+      <div class="col-lg-4">
+        <button type="button" (click)="filtrar()" class="m-3 btn btn-primary btn">Buscar</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- la tabla -->
+  <div class="mx-4 mat-elevation-z8 col-md-25">
+
+    <mat-table [dataSource]="listaVentas" class="col-md-25 mat-elevation-z1">
+
+      <ng-container matColumnDef="fecha">
+        <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cabecera.fecha}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cliente">
+        <mat-header-cell *matHeaderCellDef> Cliente </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cabecera.cliente.nombre}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="totalVenta">
+        <mat-header-cell *matHeaderCellDef>Total de Venta</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cabecera.total}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="factura">
+        <mat-header-cell *matHeaderCellDef>Factura</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cabecera.factura}} </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      <!-- Row shown when there is no matching data. -->
+      <mat-row *matNoDataRow>
+        <mat-cell colspan="4">No hay fichas clínicas...</mat-cell>
+      </mat-row>
+    </mat-table>
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+</div>
+
+<br>
+<br>
+<br>
+<br>

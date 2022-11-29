@@ -5,6 +5,8 @@ import {ListadoClientesComponent} from "./clientes/listado-clientes/listado-clie
 import {NuevoClienteComponent} from "./clientes/nuevo-cliente/nuevo-cliente.component";
 import {EditarClienteComponent} from "./clientes/editar-cliente/editar-cliente.component";
 import {ReporteVentasDetalladoComponent} from "./reporte-ventas-detallado/reporte-ventas-detallado.component";
+import {ReporteVentasResumidoComponent} from "./reporte-ventas-resumido/reporte-ventas-resumido.component";
+
 
 
 const routes: Routes = [
@@ -24,6 +26,11 @@ const routes: Routes = [
       {path: 'reporte-detallado',
         children: [
           { path: '', component: ReporteVentasDetalladoComponent}
+        ]
+      },
+      {path: 'reporte-resumido',
+        children: [
+          { path: '', component: ReporteVentasResumidoComponent}
         ]
       },
     ]

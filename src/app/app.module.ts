@@ -30,6 +30,7 @@ import { ListadoClientesComponent } from './clientes/listado-clientes/listado-cl
 import { NuevoClienteComponent } from './clientes/nuevo-cliente/nuevo-cliente.component';
 import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente.component';
 import { ReporteVentasDetalladoComponent } from './reporte-ventas-detallado/reporte-ventas-detallado.component';
+import { ReporteVentasResumidoComponent } from './reporte-ventas-resumido/reporte-ventas-resumido.component';
 
 
 @NgModule({
@@ -42,6 +43,8 @@ import { ReporteVentasDetalladoComponent } from './reporte-ventas-detallado/repo
     NuevoClienteComponent,
     EditarClienteComponent,
     ReporteVentasDetalladoComponent,
+    ReporteVentasResumidoComponent,
+    ReporteVentasResumidoComponent,
   ],
   // librerias y modulos de angular y librerias externas
     imports: [
