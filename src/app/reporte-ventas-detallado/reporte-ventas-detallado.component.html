@@ -99,7 +99,7 @@
 
       <ng-container matColumnDef="totalDetalle">
         <mat-header-cell *matHeaderCellDef>Total Detalle</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.detalle.totalDetalle}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.detalle.totalDetalle | number}} Gs. </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -107,7 +107,7 @@
 
       <!-- Row shown when there is no matching data. -->
       <mat-row *matNoDataRow>
-        <mat-cell colspan="4">No hay fichas clínicas...</mat-cell>
+        <mat-cell colspan="4">No hay detalles...</mat-cell>
       </mat-row>
     </mat-table>
 

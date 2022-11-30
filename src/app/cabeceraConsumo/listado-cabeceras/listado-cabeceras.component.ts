@@ -16,7 +16,7 @@ export class ListadoCabecerasComponent implements OnInit {
   lista: CabeceraVenta[] = [];
 
   //columnas del la tabla (ojo: si no se colocan todas las columnas correspondientes en el html no se va poder ver nada)
-  displayedColumns: string[] = ['id', 'fecha', 'factura', 'cliente', 'total', 'detalle', 'acciones'];
+  displayedColumns: string[] = ['id', 'fecha', 'factura', 'cliente', 'total', 'acciones'];
   displayedColumnsdetalle: string[] = ['producto', 'cantidad', 'precio', 'subtotal'];
 
   constructor(

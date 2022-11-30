@@ -89,7 +89,7 @@
 
       <ng-container matColumnDef="totalVenta">
         <mat-header-cell *matHeaderCellDef>Total de Venta</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.cabecera.total}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.cabecera.total | number}} Gs. </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="factura">
@@ -103,7 +103,7 @@
 
       <!-- Row shown when there is no matching data. -->
       <mat-row *matNoDataRow>
-        <mat-cell colspan="4">No hay fichas clínicas...</mat-cell>
+        <mat-cell colspan="4">No hay ventas...</mat-cell>
       </mat-row>
     </mat-table>
 

@@ -17,13 +17,14 @@
               <mat-label>Fecha</mat-label>
               <input matInput type="text" [(ngModel)]="cabecera.fecha" [readonly]="true">
             </mat-form-field>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-form-field appearance="fill" class="col-md-3">
               <mat-label>N° Factura</mat-label>
               <input matInput type="text" [(ngModel)]="cabecera.factura" [readonly]="true">
             </mat-form-field>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-form-field appearance="fill" class="col-md-3">
               <mat-label>Cliente</mat-label>
               <input matInput type="text" [(ngModel)]="cabecera.cliente.nombre" [readonly]="true">
@@ -64,12 +65,12 @@
 
               <ng-container matColumnDef="precio">
                 <th mat-header-cell *matHeaderCellDef > Precio Unitario </th>
-                <td mat-cell *matCellDef="let element"> {{element.producto.precioVenta}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.producto.precioVenta | number}} Gs. </td>
               </ng-container>
 
               <ng-container matColumnDef="total">
                 <th mat-header-cell *matHeaderCellDef > Total </th>
-                <td mat-cell *matCellDef="let element"> {{element.totalDetalle}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.totalDetalle | number}} Gs.</td>
               </ng-container>
 
 
@@ -90,7 +91,7 @@
           <div class="col-md-20 d-flex justify-content-around">
 
             <button type="button" class="btn btn-danger btn-sm"
-                    (click)="atras()">Atras
+                    (click)="atras()">Atrás
             </button>
           </div>
 
