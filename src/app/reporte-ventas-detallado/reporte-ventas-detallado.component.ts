@@ -54,7 +54,7 @@ export class ReporteVentasDetalladoComponent implements OnInit {
   obtenerReporteCabeceras (): ReporteVentas[] {
     let resultado: ReporteVentas [] = [];
 
-    let ventasJson = localStorage.getItem("ventas");
+    let ventasJson = localStorage.getItem("cabeceras");
     // datos de prueba en caso de ser necesario
     // let cabecerasPrueba: CabeceraVenta[] = [
     //   {
