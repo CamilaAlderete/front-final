@@ -34,6 +34,7 @@ import { NuevoProductoComponent } from './productos/nuevo-producto/nuevo-product
 import { EditarProductoComponent } from './productos/editar-producto/editar-producto.component';
 import { NuevaCabeceraComponent } from './cabeceraConsumo/nueva-cabecera/nueva-cabecera.component';
 import { ListadoCabecerasComponent } from './cabeceraConsumo/listado-cabeceras/listado-cabeceras.component';
+import { VistaRegistroProductosComponent } from './cabeceraConsumo/vista-registro-productos/vista-registro-productos.component';
 
 @NgModule({
   //componentes creados
@@ -49,6 +50,7 @@ import { ListadoCabecerasComponent } from './cabeceraConsumo/listado-cabeceras/l
     EditarProductoComponent,
     NuevaCabeceraComponent,
     ListadoCabecerasComponent,
+    VistaRegistroProductosComponent,
   ],
   // librerias y modulos de angular y librerias externas
     imports: [

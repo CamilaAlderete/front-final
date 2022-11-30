@@ -9,6 +9,7 @@ import {NuevoProductoComponent} from "./productos/nuevo-producto/nuevo-producto.
 import {EditarProductoComponent} from "./productos/editar-producto/editar-producto.component";
 import {ListadoCabecerasComponent} from "./cabeceraConsumo/listado-cabeceras/listado-cabeceras.component";
 import {NuevaCabeceraComponent} from "./cabeceraConsumo/nueva-cabecera/nueva-cabecera.component";
+import {VistaRegistroProductosComponent} from "./cabeceraConsumo/vista-registro-productos/vista-registro-productos.component";
 
 const routes: Routes = [
   {
@@ -37,6 +38,8 @@ const routes: Routes = [
           { path: '', redirectTo: 'lista', pathMatch: 'full'},
           { path: 'lista', component: ListadoCabecerasComponent },
           { path: 'nuevo', component: NuevaCabeceraComponent },
+          { path: ':id/vista', component: VistaRegistroProductosComponent }
+
         ]
       },
     ]

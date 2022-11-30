@@ -54,5 +54,4 @@ export class ListadoCabecerasComponent implements OnInit {
       }
     }
   }
-
 }
