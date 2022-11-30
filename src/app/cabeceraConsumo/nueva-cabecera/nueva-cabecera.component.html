@@ -15,7 +15,7 @@
           <p>
             <mat-form-field appearance="fill" class="col-3">
               <mat-label>Fecha</mat-label>
-              <input matInput [matDatepicker]="picker" [(ngModel)]="cabecera.fecha" [min]="minDate" placeholder="mm/dd/aaaa">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="fecha" [min]="minDate" placeholder="mm/dd/aaaa">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -33,7 +33,7 @@
             <mat-form-field appearance="fill" class="col-12">
               <mat-label>Cliente</mat-label>
               <mat-select [(ngModel)]="cabecera.cliente">
-                <mat-option *ngFor = "let cliente of clientes" [value]="cliente.id">
+                <mat-option *ngFor = "let cliente of clientes" [value]="cliente">
                   {{ cliente.id}} - {{ cliente.nombre }}
                 </mat-option>
               </mat-select>
@@ -60,7 +60,7 @@
               <mat-select
                 [(ngModel)]="producto"
                 (ngModelChange)="totalProducto()">
-                <mat-option *ngFor="let p of productos" [value]="p.id" >
+                <mat-option *ngFor="let p of productos" [value]="p" >
                   {{ p.nombre }} a {{p.precioVenta}} c/u
                 </mat-option>
               </mat-select>

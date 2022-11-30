@@ -5,6 +5,7 @@ import {CabeceraVenta} from "../../model/cabeceraVenta";
 import {DetalleVenta} from "../../model/detalleVenta";
 import {Cliente} from "../../model/cliente";
 import {Producto} from "../../model/producto";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-nuevo-cabecera',
@@ -23,17 +24,19 @@ export class NuevaCabeceraComponent implements OnInit {
   totalDetalle: any =  null;
   producto: any = null;
 
-  detalles1 : DetalleVenta = {
-  id: 0 ,
-  producto: this.producto,
-  cantidad: this.cantidad,
-  totalDetalle: this.totalDetalle
-  };
+    //{
+  //   id: 0 ,
+  //   producto: this.producto,
+  //   cantidad: this.cantidad,
+  //   totalDetalle: this.totalDetalle
+  // };
 
   cliente : any = Cliente;
   minDate = new Date(); //para que solo se pueda reservar de hoy en adelante
+  fecha = new Date();
+  fechaStr = this.dateFormater(this.fecha);
 
-  cabecera: CabeceraVenta = { id:0, fecha:'', factura: '', cliente:this.cliente,
+  cabecera: CabeceraVenta = { id:0, fecha: this.fechaStr, factura: '', cliente:this.cliente,
     total:0, detalles:this.detalles }
 
   displayedColumns : string[] =  ['id', 'nombre', 'cantidad',  'precio', 'total', 'acciones'];
@@ -41,21 +44,24 @@ export class NuevaCabeceraComponent implements OnInit {
   lista: CabeceraVenta[] = []
   id:any = CabeceraVenta;
 
+  lastIdDetalle: number = 1;
+
   constructor(
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
-  // *******************************************  CABECERA  ************************************************
 
   ngOnInit(): void {
+    this.setListaDetalles(); //vaciar temp
     this.getLista();
-    this.getLastId();
+    this.getLastIdCabecera();
+    this.getLastIdDetalle();
   }
 
   //obtiene el ultimo id Cabecera guardado en el local storage
-  getLastId(){
+  getLastIdCabecera(){
     let id = localStorage.getItem("lastIdCabecera");
     if(id === null){
       this.cabecera.id = 1;
@@ -63,6 +69,20 @@ export class NuevaCabeceraComponent implements OnInit {
       this.cabecera.id = parseInt(id) + 1;
     }
 
+  }
+
+  getLastIdDetalle(){
+    let id = localStorage.getItem("lastIdDetalle");
+    if(id === null){
+      this.lastIdDetalle = 1;
+    }else{
+      this.lastIdDetalle = parseInt(id) + 1;
+    }
+
+  }
+
+  dateFormater(fecha:Date){
+    return new DatePipe('en-US').transform(fecha, 'MM/dd/yyyy') || ''
   }
 
   getLista(){
@@ -94,9 +114,15 @@ export class NuevaCabeceraComponent implements OnInit {
   }
 
   //guarda el ultimo id generado
-  setLastId(){
+  setLastIdCabecera(){
     localStorage.setItem("lastIdCabecera", this.cabecera.id.toString());
   }
+
+
+  setLastIdDetalle(){
+    localStorage.setItem("lastIdDetalle", this.lastIdDetalle.toString());
+  }
+
 
   guardar(){
 
@@ -106,25 +132,33 @@ export class NuevaCabeceraComponent implements OnInit {
     else if(this.cabecera.detalles.length===0){
       this.toastr.error('La venta debe poseer al menos 1 detalle','Error');
     }else{
-      this.cabecera.cliente = this.clientes[this.cliente];
+      //      this.cabecera.cliente = this.clientes[this.cliente];
+      this.cabecera.fecha = this.dateFormater(this.fecha);
+      this.cabecera.detalles = this.detalles;
       this.lista.push(this.cabecera);
+
       localStorage.setItem('cabeceras', JSON.stringify(this.lista));
       this.toastr.success('Venta registrada exitosamente');
-      this.setLastId();
+
+      this.setLastIdCabecera();
+      this.setLastIdDetalle();
       this.atras();
     }
   }
 
- // *************************************** DETALLES **********************************************************
   getListadetalles(){
 
-    let detallesLista = localStorage.getItem("detalles");
+    let detallesLista = localStorage.getItem("tempDetalles");
     if(detallesLista !== null) {
 
       let jsonObj = JSON.parse(detallesLista);
       this.detalles = jsonObj as DetalleVenta[]
 
     }
+  }
+
+  setListaDetalles(){
+    localStorage.setItem('tempDetalles', JSON.stringify(this.detalles));
   }
 
   agregarDetalle(){
@@ -137,15 +171,19 @@ export class NuevaCabeceraComponent implements OnInit {
 
   agregarDetalleVenta(){
 
-    this.detalles1.id=Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) +
+    /*this.detalle.id=Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) +
         Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) +
-      Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10);
-    this.detalles1.cantidad = this.cantidad;
-    this.detalles1.producto = this.productos[this.producto];
-    this.detalles1.totalDetalle = this.totalDetalle;
+      Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10);*/
+    let detalle = new DetalleVenta();
+    detalle.id= this.lastIdDetalle;
+    this.lastIdDetalle = this.lastIdDetalle + 1;
+    detalle.cantidad = this.cantidad;
+    detalle.producto = this.producto;
+    detalle.totalDetalle = this.totalDetalle;
 
-    this.detalles.push(this.detalles1);
-    localStorage.setItem('detalles', JSON.stringify(this.detalles));
+    this.detalles.push(detalle);
+
+    this.setListaDetalles();
     this.getListadetalles();
 
     this.cabecera.total = this.cabecera.total + this.totalDetalle; //suma al total de la cabecera
@@ -160,7 +198,7 @@ export class NuevaCabeceraComponent implements OnInit {
   totalProducto(){
     for(var UNproducto of this.productos){
 
-      if(UNproducto.id === this.producto){
+      if(UNproducto === this.producto){
         this.totalDetalle = UNproducto.precioVenta * this.cantidad; //actualiza el total del detalle
 
         //actualiza el total de la cabecera
@@ -184,7 +222,7 @@ export class NuevaCabeceraComponent implements OnInit {
           this.cabecera.total = this.cabecera.total - UNdetalle.totalDetalle; //resta al total de la cabecera
 
           this.detalles.splice(i, 1); //eliminado un detalle
-          localStorage.setItem('detalles', JSON.stringify(this.detalles));
+          this.setListaDetalles();
           this.getListadetalles();
           this.cabecera.detalles = this.detalles; //actualizado la lista de detalles de la cabecera para luego guardar
           break;
