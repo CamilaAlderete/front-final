@@ -32,6 +32,12 @@ import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente
 import { ReporteVentasDetalladoComponent } from './reporte-ventas-detallado/reporte-ventas-detallado.component';
 import { ReporteVentasResumidoComponent } from './reporte-ventas-resumido/reporte-ventas-resumido.component';
 
+import { ListadoProductosComponent } from './productos/listado-productos/listado-productos.component';
+import { NuevoProductoComponent } from './productos/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './productos/editar-producto/editar-producto.component';
+import { NuevaCabeceraComponent } from './cabeceraConsumo/nueva-cabecera/nueva-cabecera.component';
+import { ListadoCabecerasComponent } from './cabeceraConsumo/listado-cabeceras/listado-cabeceras.component';
+import { VistaRegistroProductosComponent } from './cabeceraConsumo/vista-registro-productos/vista-registro-productos.component';
 
 @NgModule({
   //componentes creados
@@ -45,6 +51,12 @@ import { ReporteVentasResumidoComponent } from './reporte-ventas-resumido/report
     ReporteVentasDetalladoComponent,
     ReporteVentasResumidoComponent,
     ReporteVentasResumidoComponent,
+    ListadoProductosComponent,
+    NuevoProductoComponent,
+    EditarProductoComponent,
+    NuevaCabeceraComponent,
+    ListadoCabecerasComponent,
+    VistaRegistroProductosComponent,
   ],
   // librerias y modulos de angular y librerias externas
     imports: [

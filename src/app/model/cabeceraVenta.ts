@@ -2,7 +2,7 @@ import {Cliente} from "./cliente";
 import {DetalleVenta} from "./detalleVenta";
 
 export class CabeceraVenta {
-  id!: string;
+  id!: number;
   fecha!: string;
   factura!: string;
   cliente!: Cliente;

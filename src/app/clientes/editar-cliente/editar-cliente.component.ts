@@ -52,7 +52,7 @@ export class EditarClienteComponent implements OnInit {
       this.lista = jsonObj as Cliente[]
 
     }else{
-      this.toastr.warning('Lista vacia');
+      this.toastr.warning('Lista vacía');
     }
   }
 
